@@ -11,3 +11,9 @@
 
 /risk-dao/*.sql
 /.metadata/
+
+/.mvn
+/.idea
+/lib
+/target
+myDemo.iml
