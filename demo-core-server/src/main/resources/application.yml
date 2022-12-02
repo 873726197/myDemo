@@ -1,0 +1,8 @@
+db-settings: "zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai"
+
+server:
+  port: 8882
+
+spring:
+  profiles:
+    active: @env@

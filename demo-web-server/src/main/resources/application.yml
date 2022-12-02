@@ -1,0 +1,15 @@
+db-settings: "zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai"
+
+server:
+  port: 8881
+
+  ssl:
+    enabled: true
+    key-password: changeit # mkcert 创建证书时使用的默认密码
+    key-store: classpath:localhost.p12 # 这地方写你自己的证书名称
+    key-store-password: changeit # mkcert 创建证书时使用的默认密码
+    key-store-type: PKCS12
+
+spring:
+  profiles:
+    active: @env@
