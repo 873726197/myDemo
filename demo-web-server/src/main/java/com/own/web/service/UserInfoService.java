@@ -9,5 +9,5 @@ package com.own.web.service;
 
 public interface UserInfoService  {
 
-    String retryTest();
+    String retryTest() throws Exception;
 }

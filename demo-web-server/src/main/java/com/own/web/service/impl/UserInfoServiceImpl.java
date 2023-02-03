@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class UserInfoServiceImpl extends ServiceImpl<UserInfoDao, UserInfo> implements UserInfoService {
 
     @Override
-    public String retryTest() {
+    public String retryTest() throws Exception {
         Retryer<Object> retry = RetryerBuilder
                 .newBuilder()
                 .retryIfException()
@@ -36,6 +36,10 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoDao, UserInfo> impl
                         }
                     }
                 }).build();
+        retry.call(()->{
+            //执行业务逻辑
+            return "200";
+        });
         return null;
     }
 }

@@ -1,7 +1,6 @@
 package com.own.web.controller;
 
 import cn.hutool.json.JSONUtil;
-import com.own.common.dto.FileInfoDto;
 import com.own.web.dao.pojo.UserInfo;
 import com.own.web.service.impl.UserInfoServiceImpl;
 import lombok.extern.slf4j.Slf4j;
