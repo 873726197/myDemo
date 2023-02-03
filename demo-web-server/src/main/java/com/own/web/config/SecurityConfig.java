@@ -7,8 +7,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * @author  liuChang
- * @date  2022/8/31
+ * @author liuChang
+ * @date 2022/8/31
  * @describe
  */
 
@@ -20,6 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
         // 设置拦截忽略文件夹，可以对静态资源放行
-        web.ignoring().antMatchers("/css/**", "/js/**", "/fonts/**", "/images/**", "/vendor/**", "/user/**");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/fonts/**", "/images/**", "/vendor/**")
+                .antMatchers("/user/**")
+                .antMatchers("/remark/**");
     }
 }
