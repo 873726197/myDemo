@@ -1,6 +1,5 @@
 package com.own.core.service.impl;
 
-import com.own.common.dto.FileInfoDto;
 import com.own.core.service.FileService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,10 +11,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.net.URI;
-import java.util.HashMap;
 
 /**
  * @author liuChang

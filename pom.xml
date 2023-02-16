@@ -26,6 +26,7 @@
         <guava.version>31.1-jre</guava.version>
         <guava-retry.version>2.0.0</guava-retry.version>
         <spring.cloud.version>2021.0.5</spring.cloud.version>
+        <pagehelper.boot.version>1.4.6</pagehelper.boot.version>
     </properties>
 
     <dependencyManagement>
@@ -73,37 +74,15 @@
                 <scope>import</scope>
             </dependency>
 
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.boot.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                    <!-- 过滤后缀为pkcs12、jks的证书文件 -->
-                    <nonFilteredFileExtensions>
-                        <nonFilteredFileExtension>pkcs12</nonFilteredFileExtension>
-                        <nonFilteredFileExtension>jks</nonFilteredFileExtension>
-                        <nonFilteredFileExtension>p12</nonFilteredFileExtension>
-                    </nonFilteredFileExtensions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
 
 </project>

@@ -35,7 +35,6 @@ public class RemarkProcessor implements BeanPostProcessor {
             RemarkAnnotation remarkAnnotation = AnnotationUtils.findAnnotation(method1, RemarkAnnotation.class);
             if (Objects.nonNull(remarkAnnotation)) {
                 set.add(remarkAnnotation.remark());
-                System.out.println(remarkAnnotation.remark());
             }
         }
         return bean;
