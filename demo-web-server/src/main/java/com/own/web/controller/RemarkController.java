@@ -30,9 +30,4 @@ public class RemarkController {
         return sb.toString();
     }
 
-    @RemarkAnnotation(remark = "remark2")
-    @RequestMapping("/remark2")
-    public String remark2() {
-        return "11111 \n 22222";
-    }
 }

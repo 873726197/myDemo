@@ -11,9 +11,9 @@ import lombok.Data;
 @Data
 public class RoleInfo {
 
-    private int id;
+    private Integer id;
 
-    private int roleId;
+    private Integer roleId;
 
     private String roleName;
 }

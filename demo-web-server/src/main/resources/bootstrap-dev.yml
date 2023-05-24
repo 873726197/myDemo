@@ -1,0 +1,51 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # Nacos 服务地址
+        namespace: 9e7051ef-0c2a-4672-b499-47b6258d4f83
+      config:
+        server-addr: localhost:8848 # Nacos 服务地址
+        namespace: 9e7051ef-0c2a-4672-b499-47b6258d4f83 # Nacos 命名空间
+        prefix: web
+        file-extension: yml # 配置文件格式
+        group: web # 配置所属 Group
+      username: nacos
+      password: nacos
+  #        refreshable-dataids: config-test, config-test2 # 手动刷新配置的 Data ID
+
+  datasource:
+    url: jdbc:mysql://localhost/my_db?${db-settings}
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+      # 连接池配置
+    druid:
+      initial-size: 5 # 初始化连接数
+      min-idle: 5 # 最小空闲连接数
+      max-active: 20 # 最大活跃连接数
+      max-wait: 60000 # 获取连接的最大等待时间，单位毫秒
+      validation-query: SELECT 1 FROM DUAL # 测试连接是否可用的SQL语句
+      test-while-idle: true # 是否在空闲时检查连接可用性
+      time-between-eviction-runs-millis: 60000 # 定期检查连接可用性的时间间隔，单位毫秒
+      min-evictable-idle-time-millis: 300000 # 连接在池中最小空闲时间，超过此时间将被回收，单位毫秒
+      pool-prepared-statements: true # 是否缓存预编译语句
+      max-open-prepared-statements: 20 # 缓存预编译语句的最大数量
+#      filters: stat,wall,log4j # 连接池的过滤器，支持多个过滤器，用逗号隔开
+      filters: config,wall,stat # 连接池的过滤器，支持多个过滤器，用逗号隔开
+      use-global-data-source-stat: true # 是否开启全局统计功能
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000 # 自定义连接属性
+
+  security:
+    user:
+      name: admin
+      password: 123456
+logging:
+  pattern:
+    console: '%clr(%d{${LOG_DATEFORMAT_PATTERN:yy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(|){faint} %clr([%t]){faint} %clr(%logger{45}[%line]:){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}'
+
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

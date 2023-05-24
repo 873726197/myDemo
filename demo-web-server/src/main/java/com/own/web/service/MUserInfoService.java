@@ -7,7 +7,7 @@ package com.own.web.service;
  **/
 
 
-public interface UserInfoService  {
+public interface MUserInfoService  {
 
     String retryTest() throws Exception;
 }
