@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.own.web.dao.dao.AreaDao">
+
+    <select id="getAreas" resultType="com.own.web.dao.vo.AreaNode">
+        WITH RECURSIVE region_path AS (
+            SELECT
+                area_code,
+                area_name,
+                parent_code,
+                area_level
+            FROM regions
+            WHERE parent_code IS NULL
+            UNION ALL
+            SELECT
+                r.area_code,
+                r.area_name,
+                r.parent_code,
+                r.area_level
+            FROM regions r
+                     INNER JOIN region_path rp ON r.parent_code = rp.area_code
+        )
+        SELECT * FROM region_path;
+
+    </select>
+</mapper>
